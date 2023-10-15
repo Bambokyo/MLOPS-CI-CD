@@ -14,7 +14,7 @@ with open('iris_classifier.pkl', 'rb') as model_file:
 def index():
     return render_template('index.html')
 
-# hlello this is a coment
+
 # Define a route to handle form submission and make predictions
 @app.route('/predict', methods=['POST'])
 def predict():
