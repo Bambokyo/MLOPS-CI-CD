@@ -28,7 +28,7 @@ jobs:
           pip install pytest
 
       - name: Test with pytest
-        run:  pytest test_file.py
+        run:  python3 test_file.py
 
   notify:
     runs-on: ubuntu-latest
