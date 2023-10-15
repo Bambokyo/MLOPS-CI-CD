@@ -39,3 +39,10 @@ jobs:
         run: |
           # You can use this step to notify developers of test results, e.g., send a Slack message or email.
           echo "Test results: ${{ job.status }}" # This will print the test status to the workflow log
+
+      - name: Push changes to main branch
+        run: |
+          git checkout main
+          git pull origin main
+          git merge --no-ff test # Merge the changes from the test branch to main
+          git push origin main
