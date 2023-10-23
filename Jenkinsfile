@@ -1,32 +1,25 @@
 pipeline {
     agent any
-
+    
     stages {
-        stage('Checkout code') {
+        stage('Checkout') {
             steps {
-                script {
-                    checkout scm
-                }
+                checkout scm
             }
         }
-
-
-        stage('Install dependencies') {
+        
+        stage('Install Requirements') {
             steps {
-                script {
-                    sh 'pip install -r requirements.txt'
-                    sh 'pip install pytest'
-                }
+                bat 'python --version'
+                bat 'pip install --user -r requirements.txt'
+                bat 'pip install pytest'
             }
         }
-
-        stage('Test with pytest') {
+        
+        stage('Run Tests') {
             steps {
-                script {
-                    sh 'python3 test_file.py'
-                }
+                bat 'python test_file.py'
             }
         }
     }
-
 }
