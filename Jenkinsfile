@@ -21,5 +21,14 @@ pipeline {
                 bat 'python test_file.py'
             }
         }
+
+        stage('Groovy'){
+            steps {
+                script {
+                    groove = load 'zara.groovy'
+                    groove.testfunc('prod')
+                }
+            }
+        }
     }
 }
